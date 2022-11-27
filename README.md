@@ -126,6 +126,11 @@ chsh -s $(which zsh)
 
 Close all Terminal windows, reopen, then you'll be prompted to create a `.zshrc` file. Select Option `0`, because all will be added in the next steps.
 
+### Install Font for P10k
+https://github.com/romkatv/powerlevel10k#manual-font-installation
+
+Then,
+
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
