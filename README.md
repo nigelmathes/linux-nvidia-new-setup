@@ -1,8 +1,10 @@
 # Things to do to set up new Linux install
+```
 Operating System: Kubuntu 22.10
 KDE Plasma Version: 5.25.5
 KDE Frameworks Version: 5.98.0
 Kernel Version: 5.19.0-23-generic (64-bit)
+```
 
 ## Fix Nvidia GPU + KWIN multiple monitor refresh rate problem
 Copy `environment` to `/etc/environment` (requires `sudo`):
@@ -151,3 +153,67 @@ Close all Terminal windows, reopen, and customize according to the prompts.
 ### Reference Materials
 - https://ohmyz.sh/
 - https://github.com/romkatv/powerlevel10k#oh-my-zsh
+
+## Pyenv + Python
+```
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+code ~/.zshrc
+```
+
+Then, in VSCode, edit the plugins in `.zshrc`:
+
+```
+plugins=(git pyenv)
+```
+
+Then, 
+
+```
+echo ' ' >> ~/.zshrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+touch ~/.zprofile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zprofile
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zprofile
+echo 'eval "$(pyenv init -)"' >> ~/.zprofile
+echo ' ' >> ~/.profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+echo 'eval "$(pyenv init -)"' >> ~/.profile
+source ~/.zshrc
+```
+
+Then, you're probably missing the necessary dependencies to install Python, so do this:
+
+```
+sudo apt update
+sudo apt install \
+    build-essential \
+    curl \
+    libbz2-dev \
+    libffi-dev \
+    liblzma-dev \
+    libncursesw5-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    llvm \
+    make \
+    tk-dev \
+    wget \
+    xz-utils \
+    zlib1g-dev
+```
+
+And then restart the user session (restart computer while you're at it).
+
+Then you can view what is available for install and install what you want with,
+
+```
+pyenv install -l
+pyenv install 3.11
+pyenv global 3.11
+```
