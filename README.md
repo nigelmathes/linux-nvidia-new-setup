@@ -39,10 +39,20 @@ flatpak run com.leinardi.gwe
 | 90          | 100  |
 
 ## Undervolt the GPU
-Copy `gpu_undervolt.sh` anywhere that's easy to remember and  run. 
+`cd` into the `gpu-undervolt` directory here, then:
 
 ```
+chmod +x gpu_undervolt.sh
 sudo ./gpu_undervolt.sh
+```
+
+### Set up to run on system start
+In `gpu-undervolt.service`, edit the `ExecStart` path to point to the `gpu_undervolt.sh` script. Then,
+
+```
+sudo cp gpu-undervolt.service /etc/systemd/system/.
+sudo systemctl daemon-reload
+sudo systemctl enable /etc/systemd/system/gpu-undervolt.service
 ```
 
 ### Reference Material
