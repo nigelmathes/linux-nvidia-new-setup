@@ -1,0 +1,17 @@
+/* Example userChrome.css file */
+
+/* Import your desired components first */
+@import url(chrome/tab_loading_progress_throbber.css);
+@import url(chrome/hide_toolbox_top_bottom_borders.css);
+@import url(chrome/minimal_text_fields.css);
+@import url(chrome/urlbar_centered_text.css);
+@import url(chrome/tabs_below_content.css);
+
+/* Apply your custom modifications after imports */
+
+:root {
+  --arrowpanel-background: var(--toolbar-bgcolor) !important;
+  --autocomplete-popup-background: var(--toolbar-bgcolor) !important;
+  --uc-menu-disabled: rgb(90, 90, 90) !important;
+  --lwt-toolbar-field-focus: rgb(36, 44, 59) !important;
+}
