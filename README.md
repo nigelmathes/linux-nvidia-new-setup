@@ -117,3 +117,22 @@ cp ~/Downloads/Overwatch.dxvk-cache ~/Games/battlenet/.
 - https://github.com/lutris/docs/blob/master/Battle.Net.md
 - https://github.com/lutris/docs/blob/master/Overwatch.md
 - https://www.reddit.com/r/linux_gaming/comments/y41tbp/overwatch_2_non_persistent_shader_cache/
+
+## Zsh/Oh-My-Zsh/Powerlevel10k
+```
+sudo apt install zsh
+chsh -s $(which zsh)
+```
+
+Close all Terminal windows, reopen, then you'll be prompted to create a `.zshrc` file. Select Option `0`, because all will be added in the next steps.
+
+```
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+Close all Terminal windows, reopen, and customize according to the prompts. 
+
+### Reference Materials
+- https://ohmyz.sh/
+- https://github.com/romkatv/powerlevel10k#oh-my-zsh
