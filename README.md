@@ -104,8 +104,16 @@ sudo dpkg --add-architecture i386 && sudo apt update && sudo apt install -y libv
 ```
 
 4. Install Battle.net by clicking the `+` in the upper left of Lutris and searching `battle.net`
-5. Change Runner options Wine version to `overwatch2-caffe-7.18-x86_64 (default)` in Lutris by clicking onn Battle.net, and at the bottom, clicking the up arrow next to `Play`, selecting `Configure`, going to the `Runner options` tab, and changing the `Wine version` via the dropdown menu.
+5. Change Runner options Wine version to `overwatch2-caffe-7.18-x86_64 (default)` in Lutris by clicking on Battle.net, and at the bottom, clicking the up arrow next to `Play`, selecting `Configure`, going to the `Runner options` tab, and changing the `Wine version` via the dropdown menu.
+6. Download pre-compiled shaders from https://github.com/GolDNenex/overwatch2-dxvk-cache
+
+```
+cp ~/Downloads/Overwatch.dxvk-cache ~/Games/battlenet/.
+```
+
+7. (Maybe) Set `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1` in Lutris by clicking on Battle.net, and at the bottom, clicking the up arrow next to `Play`, selecting `Configure`, going to the `System options` tab, and adding it to `Environment variables`.
 
 ### Reference Material
 - https://github.com/lutris/docs/blob/master/Battle.Net.md
 - https://github.com/lutris/docs/blob/master/Overwatch.md
+- https://www.reddit.com/r/linux_gaming/comments/y41tbp/overwatch_2_non_persistent_shader_cache/
