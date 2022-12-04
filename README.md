@@ -124,6 +124,7 @@ cp ~/Downloads/Overwatch.dxvk-cache ~/Games/battlenet/.
 ```
 
 7. (Maybe) Set `__GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1` in Lutris by clicking on Battle.net, and at the bottom, clicking the up arrow next to `Play`, selecting `Configure`, going to the `System options` tab, and adding it to `Environment variables`.
+8. (Maybe) Use the async DXVK libraries: https://gist.github.com/ryleu/aaef41c71dddd612c6bcf118c7870149
 
 ### Reference Material
 - https://github.com/lutris/docs/blob/master/Battle.Net.md
@@ -216,4 +217,32 @@ Then you can view what is available for install and install what you want with,
 pyenv install -l
 pyenv install 3.11
 pyenv global 3.11
+```
+
+## LSDeluxe (LSD), a better `ls`
+1. Go here: https://github.com/Peltoche/lsd/releases
+2. Download `lsd_0.23.1_amd64.deb `, towards the bottom. Version may be different. 
+3. From this directory, run:
+```
+sudo dpkg -i ~/Downloads/lsd_0.23.1_amd64.deb
+```
+
+4. From this directory, run:
+```
+mkdir ~/.config/lsd && cp lsd/config.yml ~/.config/lsd/.
+```
+
+1. Add the following aliases to `~/.zshrc`:
+```
+alias ls='lsd'
+alias ll='ls -l'
+alias l='ll'
+alias lt='ls -l --tree'
+alias ltt='ls -l --tree --depth 3'
+alias lttt='ls -l --tree --depth 4'
+```
+
+1. From this directory, run:
+```
+source ~/.zshrc
 ```
